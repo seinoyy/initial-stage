@@ -1,8 +1,8 @@
 <template>
 	<view>
 		<input
-			class="fh-input-class"
-			:class="{ 'fh-input-width': clearable }"
+			class="my-input-class"
+			:class="{ 'my-input-width': clearable }"
 			:type="currentType"
 			:value="currentValue"
 			:placeholder="placeholderShow ? placeholder : ''"
@@ -26,20 +26,20 @@
 			@confirm="inputConfirm"
 		/>
 		<view v-if="clearable" class="clear-icon-view">
-			<u-icon
+			<icon
 				v-show="showClear"
-				name="close-circle-fill"
-				:size="11.72"
+				type="clear"
+				:size="iconSize"
 				color="#999999"
 				@click="$emit('input', '')"
-			></u-icon>
+			/>
 		</view>
 	</view>
 </template>
 
 <script>
 export default {
-	name: 'FhInput',
+	name: 'MyInput',
 	props: {
 		type: {
 			type: String,
@@ -141,7 +141,8 @@ export default {
 			innerDisabled: false,
 			innerFocus: false,
 			currentValue: '',
-			placeholderShow: true
+			placeholderShow: true,
+			iconSize: uni.upx2px(11.72)
 		}
 	},
 	methods: {
@@ -192,17 +193,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fh-input-class {
+.my-input-class {
 	height: calc(100% - 0.74rpx);
 	float: left;
 	width: 100%;
 	font: inherit;
 }
-.fh-input-width {
+.my-input-width {
 	width: calc(100% - 11.72rpx);
 }
 .clear-icon-view {
 	float: left;
 	width: 11.72rpx;
+	& > uni-icon {
+		vertical-align: middle;
+	}
+}
+/deep/ .uni-icon-clear::before {
+	content: '\EA0F';
 }
 </style>
