@@ -39,7 +39,7 @@
 
 <script>
 export default {
-	name: 'MyInput',
+	name: 'FhInput',
 	props: {
 		type: {
 			type: String,
