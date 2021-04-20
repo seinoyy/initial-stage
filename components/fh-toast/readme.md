@@ -23,7 +23,11 @@
 <template>
     <fh-toast
     	ref="fhToast"
-    ></fh-toast>
+    >
+		<template v-slot:toastIcon>
+			<icon type="success_no_circle" size="26"/>
+		</template>
+	</fh-toast>
 </template>
 <script>
 export default {
