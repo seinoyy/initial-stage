@@ -1,7 +1,10 @@
 <template>
-	<view v-if="show" class="apple-login-main" @click="appleLogin">
+	<view v-if="show" class="fh-apple-login-main" @click="appleLogin">
 		<slot>
-			<button size="mini">{{ content }}</button>
+			<view class="fh-apple-login-button">
+				<view class="fh-apple-icon"></view>
+				{{ content }}
+			</view>
 		</slot>
 	</view>
 </template>
@@ -47,6 +50,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.apple-login-main {
+.fh-apple-login-main {
+	width: 146.49rpx;
+	height: 33.7rpx;
+	border-radius: 4.4rpx;
+	border: 0.74rpx solid #333333;
+	.fh-apple-login-button {
+		width: 146.49rpx;
+		height: 33.7rpx;
+		border-radius: 4.4rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		line-height: 33.7rpx;
+		font-family: PingFangSC-Medium;
+		font-size: 11.72rpx;
+		color: #333333;
+		.fh-apple-icon {
+			width: 11.72rpx;
+			height: 11.72rpx;
+			background-image: url(../../static/fh-apple-login/fh-apple-icon.png);
+			background-repeat: no-repeat;
+			background-size: contain;
+			margin-right: 7.33rpx;
+		}
+	}
 }
 </style>
